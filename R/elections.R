@@ -41,7 +41,6 @@ get_general_elections <- function () {
         2017,        2017-05-03,        2017-06-08"
 
     readr::read_csv(election_dates,
-                    skip = 1,
                     trim_ws = TRUE,
                     col_types = readr::cols(
                         name = readr::col_character(),
