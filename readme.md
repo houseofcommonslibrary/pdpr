@@ -59,7 +59,7 @@ I welcome any feedback, bug reports, and suggestions for improvement. Please tal
 
 __sparql_select__(_query_)
 
-The low-level query API consists of a single function which takes a SPARQL SELECT query, sends it to the data platform, and returns the results as a tibble.
+The low-level query API consists of a single function which takes a SPARQL SELECT query, sends it to the data platform, and returns the results as a _tibble_.
 
 ```r
 query <- "
