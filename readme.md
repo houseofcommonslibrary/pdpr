@@ -14,11 +14,9 @@ This package provides access to data stored in the data platform through two int
 
 The higher level interface currently focuses on providing key data about Members of both Houses of Parliament, but you can use the lower level interface to send custom queries of your own for other data.
 
-Install from GitHub using devtools.
-
 ## Installation
 
-Install from GitHub with devtools.
+Install from GitHub using devtools.
 
 ``` r
 install.packages("devtools")
