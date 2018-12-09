@@ -16,7 +16,6 @@ pm_csv <- "
 "
 
 pm <- readr::read_csv(pm_csv,
-                      skip = 1,
                       trim_ws = TRUE,
                       col_types = readr::cols(
                           person_id = readr::col_character(),

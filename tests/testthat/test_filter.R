@@ -28,7 +28,6 @@ mem_b_csv <- "
 "
 
 mem_a <- readr::read_csv(mem_a_csv,
-                         skip = 1,
                          trim_ws = TRUE,
                          col_types = readr::cols(
                              person_id = readr::col_character(),
@@ -37,7 +36,6 @@ mem_a <- readr::read_csv(mem_a_csv,
                              end_date = readr::col_date()))
 
 mem_b <- readr::read_csv(mem_b_csv,
-                         skip = 1,
                          trim_ws = TRUE,
                          col_types = readr::cols(
                              person_id = readr::col_character(),
