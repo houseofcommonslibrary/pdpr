@@ -85,7 +85,7 @@ combine_party_memberships <- function(pm) {
             party_membership_end_date = max(party_membership_end_date)) %>%
         dplyr::ungroup() %>%
         dplyr::arrange(
-            display_name,
+            family_name,
             party_membership_start_date) %>%
         dplyr::select(-per_par_mem_id)
 }
