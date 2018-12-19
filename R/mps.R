@@ -140,14 +140,14 @@ fetch_mps <- function(from_date = NA,
     # Filter on dates if requested
     if (! is.na(from_date) || ! is.na(to_date)) {
         commons_memberships <- fetch_commons_memberships()
-        mathching_memberships <- filter_dates(
+        matching_memberships <- filter_dates(
             commons_memberships,
             start_col = 'seat_incumbency_start_date',
             end_col = 'seat_incumbency_end_date',
             from_date = from_date,
             to_date = to_date)
         mps <- mps %>%
-            dplyr::filter(person_id %in% mathching_memberships$person_id)
+            dplyr::filter(person_id %in% matching_memberships$person_id)
     }
 
     # Tidy up and return
@@ -229,7 +229,7 @@ fetch_commons_memberships <- function(from_date = NA,
         general_elections)
 
     # Cast back to dates and reassign
-    commons_memberships$seat_incumbency_end_date <- parse_date(adj_ends)
+    commons_memberships$seat_incumbency_end_date <- cast_date(adj_ends)
 
     # Tidy up and return
     commons_memberships %>%

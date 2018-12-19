@@ -16,7 +16,9 @@ request_error <- function(response) {
 #' @keywords internal
 
 date_format_error <- function(date_str) {
-    stringr::str_glue("{date_str} is not a valid Date or date string")
+    stringr::str_glue(stringr::str_c(
+        "{date_str} is not a valid Date or ",
+        "date string: use format \"YYYY-MM-DD\""))
 }
 
 #' Report an error handling dataframes with missing columms

@@ -40,9 +40,23 @@ convert_pdp_date <- function(datetime_str) {
 #' @keywords internal
 
 parse_date <- function(date_str) {
+
+    valid_pattern <- "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$"
+    if (! grepl(valid_pattern, date_str)) stop(date_format_error(date_str))
+
     tryCatch(
         as.Date(date_str, origin = "1970-01-01"),
         error = function(e) stop(date_format_error(date_str)))
+}
+
+#' Cast a numeric value to a Date
+#'
+#' @keywords internal
+
+cast_date <- function(date_num) {
+    tryCatch(
+        as.Date(date_num, origin = "1970-01-01"),
+        error = function(e) stop("Could not cast numeric to date"))
 }
 
 # Data presentation functions -------------------------------------------------

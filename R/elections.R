@@ -66,8 +66,8 @@ get_general_elections_list <- function() {
         as.list(dplyr::select(elections, dissolution, election)),
         function(dissolution, election) {
             list(
-                dissolution = parse_date(dissolution),
-                election = parse_date(election)
+                dissolution = cast_date(dissolution),
+                election = cast_date(election)
             )
         }
     )

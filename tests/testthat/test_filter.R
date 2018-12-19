@@ -81,7 +81,7 @@ test_that("filter_dates raises a date format error.", {
             start_col = "start_date",
             end_col = "end_date",
             from_date = "2010-01-XX",
-            to_date = "20010-12-31"),
+            to_date = "2010-12-31"),
         "2010-01-XX is not a valid Date or date string")
 
     expect_error(
