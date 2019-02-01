@@ -1,7 +1,7 @@
 Package: pdpr
 Type: Package
 Title: A package for downloading data from the Parliamentary Data Platform
-Version: 0.1.2
+Version: 0.1.3
 Author: Oliver Hawkins
 Maintainer: Oliver Hawkins <oli@olihawkins.com>
 Description: This package provides functions for downloading data from the
@@ -9,7 +9,7 @@ Description: This package provides functions for downloading data from the
     SPARQL queries to the API endpoint and receive the results as a tibble 
     with data converted to the approriate R data type. In addition, convenience
     functions are provided for executing common queries.
-License: BSD
+License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:

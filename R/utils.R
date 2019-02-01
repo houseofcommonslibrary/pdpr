@@ -1,10 +1,5 @@
 ### Package utility functions
 
-# Import pipe -----------------------------------------------------------------
-
-#' @importFrom magrittr %>%
-NULL
-
 # API Functions ---------------------------------------------------------------
 
 #' Check if R can reach the api and return a boolean

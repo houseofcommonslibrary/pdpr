@@ -269,5 +269,3 @@ fetch_committee_memberships_raw <- function(house = NA) {
     sparql_select(committee_memberships_query)
 }
 
-# Public API ------------------------------------------------------------------
-
