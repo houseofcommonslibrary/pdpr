@@ -63,7 +63,7 @@ get_general_elections <- function () {
 get_general_elections_list <- function() {
     elections <- get_general_elections()
     election_list <- purrr::pmap(
-        as.list(dplyr::select(elections, dissolution, election)),
+        as.list(dplyr::select(elections, .data$dissolution, .data$election)),
         function(dissolution, election) {
             list(
                 dissolution = cast_date(dissolution),

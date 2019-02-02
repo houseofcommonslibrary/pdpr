@@ -54,7 +54,9 @@ combine_party_memberships <- function(pm) {
     }
 
     # Sort by person id and membership start date
-    pm <- pm %>% dplyr::arrange(person_id, party_membership_start_date)
+    pm <- pm %>% dplyr::arrange(
+        .data$person_id,
+        .data$party_membership_start_date)
 
     # Create unique combination of person_id and party_id
     per_par_id <- stringr::str_c(
@@ -71,21 +73,23 @@ combine_party_memberships <- function(pm) {
     # earliest start date and latest end date
     pm %>%
         dplyr::group_by(
-            person_id,
-            mnis_id,
-            given_name,
-            family_name,
-            display_name,
-            party_id,
-            party_mnis_id,
-            party_name,
-            per_par_mem_id) %>%
+            .data$person_id,
+            .data$mnis_id,
+            .data$given_name,
+            .data$family_name,
+            .data$display_name,
+            .data$party_id,
+            .data$party_mnis_id,
+            .data$party_name,
+            .data$per_par_mem_id) %>%
         dplyr::summarise(
-            party_membership_start_date = min(party_membership_start_date),
-            party_membership_end_date = max(party_membership_end_date)) %>%
+            party_membership_start_date =
+                min(.data$party_membership_start_date),
+            party_membership_end_date =
+                max(.data$party_membership_end_date)) %>%
         dplyr::ungroup() %>%
         dplyr::arrange(
-            family_name,
-            party_membership_start_date) %>%
-        dplyr::select(-per_par_mem_id)
+            .data$family_name,
+            .data$party_membership_start_date) %>%
+        dplyr::select(-.data$per_par_mem_id)
 }

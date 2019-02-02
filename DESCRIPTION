@@ -1,7 +1,7 @@
 Package: pdpr
 Type: Package
 Title: A package for downloading data from the Parliamentary Data Platform
-Version: 0.1.3
+Version: 0.1.4
 Author: Oliver Hawkins
 Maintainer: Oliver Hawkins <oli@olihawkins.com>
 Description: This package provides functions for downloading data from the
@@ -19,6 +19,7 @@ Imports:
 	magrittr,
 	purrr,
 	readr,
+	rlang,
 	stringr,
 	tibble
 Suggests: testthat

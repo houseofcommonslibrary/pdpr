@@ -171,11 +171,25 @@ filter_memberships <- function(tm,
     }
 
     # Create abstract copies of tm and fm
-    tma <- tm %>% dplyr::select_(join_col, tm_id_col, tm_start_col, tm_end_col)
-    colnames(tma) <- c("join_col", "tm_id_col", "tm_start_col", "tm_end_col")
+    tma <- tm %>% dplyr::select(
+        !! join_col,
+        !! tm_id_col,
+        !! tm_start_col,
+        !! tm_end_col)
+    colnames(tma) <- c(
+        "join_col",
+        "tm_id_col",
+        "tm_start_col",
+        "tm_end_col")
 
-    fma <- fm %>% dplyr::select_(join_col, fm_start_col, fm_end_col)
-    colnames(fma) <- c("join_col", "fm_start_col", "fm_end_col")
+    fma <- fm %>% dplyr::select(
+        !! join_col,
+        !! fm_start_col,
+        !! fm_end_col)
+    colnames(fma) <- c(
+        "join_col",
+        "fm_start_col",
+        "fm_end_col")
 
     # Join the target memberships with the filter membership dates on join_col
     tm_fm <- dplyr::left_join(
@@ -213,8 +227,8 @@ filter_memberships <- function(tm,
     tm_fm["in_membership"] <- apply(tm_fm, 1, in_fm_func)
 
     match_status <- tm_fm %>%
-        dplyr::group_by_("tm_id_col") %>%
-        dplyr::summarise(in_membership = any(in_membership))
+        dplyr::group_by(.data$tm_id_col) %>%
+        dplyr::summarise(in_membership = any(.data$in_membership))
 
     # Restore the actual target membership id column name for joining
     colnames(match_status) <- c(tm_id_col, "in_membership")
@@ -227,7 +241,7 @@ filter_memberships <- function(tm,
 
     # Return the target memberships after filtering
     tm_fm_status %>%
-        dplyr::filter(in_membership) %>%
-        dplyr::select(-in_membership) %>%
+        dplyr::filter(.data$in_membership) %>%
+        dplyr::select(-.data$in_membership) %>%
         dplyr::ungroup()
 }

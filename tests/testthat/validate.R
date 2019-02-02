@@ -33,8 +33,8 @@ write <- function(df, filename) {
 
 compare_obs_exp <- function(obs, exp, cols, sort_col) {
 
-    obs <- obs %>% dplyr::arrange_(sort_col)
-    exp <- exp %>% dplyr::arrange_(sort_col)
+    obs <- obs %>% dplyr::arrange(.data[[sort_col]])
+    exp <- exp %>% dplyr::arrange(.data[[sort_col]])
 
     expect_true(all(cols %in% colnames(exp)))
     expect_equal(nrow(obs), nrow(exp))

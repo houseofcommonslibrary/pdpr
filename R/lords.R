@@ -137,18 +137,18 @@ fetch_lords <- function(from_date = NA,
     # Filter on dates if requested
     if (! is.na(from_date) || ! is.na(to_date)) {
         lords_memberships <- fetch_lords_memberships()
-        mathching_memberships <- filter_dates(
+        matching_memberships <- filter_dates(
             lords_memberships,
-            start_col = 'seat_incumbency_start_date',
-            end_col = 'seat_incumbency_end_date',
+            start_col = "seat_incumbency_start_date",
+            end_col = "seat_incumbency_end_date",
             from_date = from_date,
             to_date = to_date)
         lords <- lords %>%
-            dplyr::filter(person_id %in% mathching_memberships$person_id)
+            dplyr::filter(.data$person_id %in% matching_memberships$person_id)
     }
 
     # Tidy up and return
-    lords %>% dplyr::arrange(family_name)
+    lords %>% dplyr::arrange(.data$family_name)
 }
 
 #' Fetch Lords memberships for all Lords
@@ -199,15 +199,15 @@ fetch_lords_memberships <- function(from_date = NA,
     if (! is.na(from_date) || ! is.na(to_date)) {
         lords_memberships <- filter_dates(
             lords_memberships,
-            start_col = 'seat_incumbency_start_date',
-            end_col = 'seat_incumbency_end_date',
+            start_col = "seat_incumbency_start_date",
+            end_col = "seat_incumbency_end_date",
             from_date = from_date,
             to_date = to_date)
     }
 
     # Tidy up and return
     lords_memberships %>%
-        dplyr::arrange(family_name)
+        dplyr::arrange(.data$family_name)
 }
 
 #' Fetch party memberships for all Lords
@@ -279,8 +279,8 @@ fetch_lords_party_memberships <- function(from_date = NA,
     if (! is.na(from_date) || ! is.na(to_date)) {
         party_memberships <- filter_dates(
             party_memberships,
-            start_col = 'party_membership_start_date',
-            end_col = 'party_membership_end_date',
+            start_col = "party_membership_start_date",
+            end_col = "party_membership_end_date",
             from_date = from_date,
             to_date = to_date)
     }
@@ -291,12 +291,12 @@ fetch_lords_party_memberships <- function(from_date = NA,
         party_memberships <- filter_memberships(
             tm = party_memberships,
             fm = lords_memberships,
-            tm_id_col = 'party_membership_id',
-            tm_start_col = 'party_membership_start_date',
-            tm_end_col = 'party_membership_end_date',
-            fm_start_col = 'seat_incumbency_start_date',
-            fm_end_col = 'seat_incumbency_end_date',
-            join_col = 'person_id')
+            tm_id_col = "party_membership_id",
+            tm_start_col = "party_membership_start_date",
+            tm_end_col = "party_membership_end_date",
+            fm_start_col = "seat_incumbency_start_date",
+            fm_end_col = "seat_incumbency_end_date",
+            join_col = "person_id")
     }
 
     # Collapse consecutive memberships and return if requested
@@ -307,8 +307,8 @@ fetch_lords_party_memberships <- function(from_date = NA,
     # Otherwise tidy up and return
     party_memberships %>%
         dplyr::arrange(
-            family_name,
-            party_membership_start_date)
+            .data$family_name,
+            .data$party_membership_start_date)
 }
 
 #' Fetch government roles for all Lords
@@ -365,8 +365,8 @@ fetch_lords_government_roles <- function(from_date = NA,
     if (! is.na(from_date) || ! is.na(to_date)) {
         government_roles <- filter_dates(
             government_roles,
-            start_col = 'government_incumbency_start_date',
-            end_col = 'government_incumbency_end_date',
+            start_col = "government_incumbency_start_date",
+            end_col = "government_incumbency_end_date",
             from_date = from_date,
             to_date = to_date)
     }
@@ -377,18 +377,18 @@ fetch_lords_government_roles <- function(from_date = NA,
         government_roles <- filter_memberships(
             tm = government_roles,
             fm = lords_memberships,
-            tm_id_col = 'government_incumbency_id',
-            tm_start_col = 'government_incumbency_start_date',
-            tm_end_col = 'government_incumbency_end_date',
-            fm_start_col = 'seat_incumbency_start_date',
-            fm_end_col = 'seat_incumbency_end_date',
-            join_col = 'person_id')
+            tm_id_col = "government_incumbency_id",
+            tm_start_col = "government_incumbency_start_date",
+            tm_end_col = "government_incumbency_end_date",
+            fm_start_col = "seat_incumbency_start_date",
+            fm_end_col = "seat_incumbency_end_date",
+            join_col = "person_id")
     }
 
     # Tidy up and return
     government_roles %>% dplyr::arrange(
-        family_name,
-        government_incumbency_start_date)
+        .data$family_name,
+        .data$government_incumbency_start_date)
 }
 
 
@@ -446,8 +446,8 @@ fetch_lords_opposition_roles <- function(from_date = NA,
     if (! is.na(from_date) || ! is.na(to_date)) {
         opposition_roles <- filter_dates(
             opposition_roles,
-            start_col = 'opposition_incumbency_start_date',
-            end_col = 'opposition_incumbency_end_date',
+            start_col = "opposition_incumbency_start_date",
+            end_col = "opposition_incumbency_end_date",
             from_date = from_date,
             to_date = to_date)
     }
@@ -458,18 +458,18 @@ fetch_lords_opposition_roles <- function(from_date = NA,
         opposition_roles <- filter_memberships(
             tm = opposition_roles,
             fm = lords_memberships,
-            tm_id_col = 'opposition_incumbency_id',
-            tm_start_col = 'opposition_incumbency_start_date',
-            tm_end_col = 'opposition_incumbency_end_date',
-            fm_start_col = 'seat_incumbency_start_date',
-            fm_end_col = 'seat_incumbency_end_date',
-            join_col = 'person_id')
+            tm_id_col = "opposition_incumbency_id",
+            tm_start_col = "opposition_incumbency_start_date",
+            tm_end_col = "opposition_incumbency_end_date",
+            fm_start_col = "seat_incumbency_start_date",
+            fm_end_col = "seat_incumbency_end_date",
+            join_col = "person_id")
     }
 
     # Tidy up and return
     opposition_roles %>% dplyr::arrange(
-        family_name,
-        opposition_incumbency_start_date)
+        .data$family_name,
+        .data$opposition_incumbency_start_date)
 }
 
 #' Fetch committee memberships for all Lords
@@ -527,8 +527,8 @@ fetch_lords_committee_memberships <- function(from_date = NA,
     if (! is.na(from_date) || ! is.na(to_date)) {
         committee_memberships <- filter_dates(
             committee_memberships,
-            start_col = 'committee_membership_start_date',
-            end_col = 'committee_membership_end_date',
+            start_col = "committee_membership_start_date",
+            end_col = "committee_membership_end_date",
             from_date = from_date,
             to_date = to_date)
     }
@@ -539,16 +539,16 @@ fetch_lords_committee_memberships <- function(from_date = NA,
         committee_memberships <- filter_memberships(
             tm = committee_memberships,
             fm = lords_memberships,
-            tm_id_col = 'committee_membership_id',
-            tm_start_col = 'committee_membership_start_date',
-            tm_end_col = 'committee_membership_end_date',
-            fm_start_col = 'seat_incumbency_start_date',
-            fm_end_col = 'seat_incumbency_end_date',
-            join_col = 'person_id')
+            tm_id_col = "committee_membership_id",
+            tm_start_col = "committee_membership_start_date",
+            tm_end_col = "committee_membership_end_date",
+            fm_start_col = "seat_incumbency_start_date",
+            fm_end_col = "seat_incumbency_end_date",
+            join_col = "person_id")
     }
 
     # Tidy up and return
     committee_memberships %>% dplyr::arrange(
-        family_name,
-        committee_membership_start_date)
+        .data$family_name,
+        .data$committee_membership_start_date)
 }
