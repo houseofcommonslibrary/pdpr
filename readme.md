@@ -161,7 +161,7 @@ The `from_date`, `to_date` and `on_date`arguments can be used to filter the Lord
 
 _pdpr_::__fetch_lords_memberships__(_from_date = NA_, _to_date = NA_, _on_date = NA_)
 
-Fetch a dataframe of Commons memberships for each Lord, with one row per Lords membership.
+Fetch a dataframe of Lords memberships for each Lord, with one row per Lords membership.
 
 ---
 
