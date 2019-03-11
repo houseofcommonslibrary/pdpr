@@ -97,7 +97,7 @@ Some MP functions have an optional argument called `while_mp`, which filters the
 
 ---
 
-_pdpr_::__fetch_mps__(_from_date = NA_, _to_date = NA_)
+_pdpr_::__fetch_mps__(_from_date = NA_, _to_date = NA_, _on_date = NA_)
 
 Fetch a dataframe of key details about each MP, with one row per MP.
 
@@ -149,7 +149,7 @@ Some Lords functions have an optional argument called `while_lord`, which filter
 
 ---
 
-_pdpr_::__fetch_lords__(_from_date = NA_, _to_date = NA_)
+_pdpr_::__fetch_lords__(_from_date = NA_, _to_date = NA_, _on_date = NA_)
 
 Fetch a dataframe of key details about each Lord, with one row per Lord.
 
