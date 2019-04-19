@@ -206,7 +206,7 @@ docker run --rm -d -p 7200:7200 ukparliament/graphdb:latest
 Use `pdpr::set_api_url` to point the package at the local version of the data platform API:
 
 ```r
-pdpr::set_api_url('http://localhost:7200/repositories/parliament')
+pdpr::set_api_url("http://localhost:7200/repositories/parliament")
 ```
 
 Use `pdpr::reset_api_url` to reset the package to use the live version of the API:
