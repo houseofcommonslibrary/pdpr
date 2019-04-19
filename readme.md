@@ -190,3 +190,29 @@ Fetch a dataframe of opposition roles for each Lord, with one row per opposition
 _pdpr_::__fetch_lords_committee_memberships__(_from_date = NA_, _to_date = NA_, _on_date = NA_, _while_lord = TRUE_)
 
 Fetch a dataframe of Parliamentary committee memberships for each Lord, with one row per committee membership.
+
+---
+
+## Settings
+
+You can configure the package to use a different data platform API endpoint at runtime. This allows you to run the package against a local version of the data platform. As explained by @matthieubosquet in this [comment](https://github.com/olihawkins/pdpr/issues/1#issuecomment-484026350), the data platform team maintain a docker image of the data platform API which is updated daily with the latest data.
+
+You can run a local version of the data platform API with docker using:
+
+```bash
+docker run --rm -d -p 7200:7200 ukparliament/graphdb:latest
+```
+
+Use `pdpr::set_api_url` to point the package at the local version of the data platform API:
+
+```r
+pdpr::set_api_url('http://localhost:7200/repositories/parliament')
+```
+
+Use `pdpr::reset_api_url` to reset the package to use the live version of the API:
+
+```r
+pdpr::reset_api_url()
+```
+
+You can check the currently set API url with `pdpr::get_api_url()`.

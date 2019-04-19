@@ -14,7 +14,7 @@
 
 request <- function(query) {
 
-    url <- "https://api.parliament.uk/sparql"
+    url <- get_api_url()
 
     headers <- httr::add_headers(
         "content-type" = "application/sparql-query",
