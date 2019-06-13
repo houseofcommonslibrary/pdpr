@@ -201,16 +201,6 @@ fetch_commons_memberships <- function(from_date = NA,
     # Fetch the Commons memberships
     commons_memberships <- fetch_commons_memberships_raw()
 
-    # Filter on dates if requested
-    if (! is.na(from_date) || ! is.na(to_date)) {
-        commons_memberships <- filter_dates(
-            commons_memberships,
-            start_col = "seat_incumbency_start_date",
-            end_col = "seat_incumbency_end_date",
-            from_date = from_date,
-            to_date = to_date)
-    }
-
     # Define a function to adjust end dates if they are incorrect
     adjust_date <- function(date, elections) {
         after_dissolution <- date > elections$dissolution
@@ -230,6 +220,16 @@ fetch_commons_memberships <- function(from_date = NA,
 
     # Cast back to dates and reassign
     commons_memberships$seat_incumbency_end_date <- cast_date(adj_ends)
+
+    # Filter on dates if requested
+    if (! is.na(from_date) || ! is.na(to_date)) {
+        commons_memberships <- filter_dates(
+            commons_memberships,
+            start_col = "seat_incumbency_start_date",
+            end_col = "seat_incumbency_end_date",
+            from_date = from_date,
+            to_date = to_date)
+    }
 
     # Tidy up and return
     commons_memberships %>%
