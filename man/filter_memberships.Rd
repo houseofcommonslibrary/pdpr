@@ -5,8 +5,16 @@
 \title{Filter a dataframe of memberships to include only the rows whose period
 of membership intersects with those in another dataframe of memberships}
 \usage{
-filter_memberships(tm, fm, tm_id_col, tm_start_col, tm_end_col,
-  fm_start_col, fm_end_col, join_col)
+filter_memberships(
+  tm,
+  fm,
+  tm_id_col,
+  tm_start_col,
+  tm_end_col,
+  fm_start_col,
+  fm_end_col,
+  join_col
+)
 }
 \arguments{
 \item{tm}{A tibble containing the target memberships. These are the

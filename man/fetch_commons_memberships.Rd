@@ -38,6 +38,7 @@ returned. The on_date argument is a convenience that sets the from_date and
 to_date to the same given date. The on_date has priority: if the on_date is
 set, the from_date and to_date are ignored.
 
+
 The filtering is inclusive: a membership is returned if any part of it falls
 within the period specified with the from and to dates.
 

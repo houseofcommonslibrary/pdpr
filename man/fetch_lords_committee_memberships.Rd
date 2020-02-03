@@ -4,8 +4,12 @@
 \alias{fetch_lords_committee_memberships}
 \title{Fetch committee memberships for all Lords}
 \usage{
-fetch_lords_committee_memberships(from_date = NA, to_date = NA,
-  on_date = NA, while_lord = TRUE)
+fetch_lords_committee_memberships(
+  from_date = NA,
+  to_date = NA,
+  on_date = NA,
+  while_lord = TRUE
+)
 }
 \arguments{
 \item{from_date}{A string or Date representing a date. If a string is used

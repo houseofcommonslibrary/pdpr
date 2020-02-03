@@ -3,7 +3,6 @@
 \docType{package}
 \name{pdpr}
 \alias{pdpr}
-\alias{pdpr-package}
 \title{pdpr: A package for downloading data from the Parliamentary Data Platform}
 \description{
 The pdpr package provides a suite of functions for downloading data from

@@ -4,8 +4,12 @@
 \alias{fetch_mps_government_roles}
 \title{Fetch government roles for all MPs}
 \usage{
-fetch_mps_government_roles(from_date = NA, to_date = NA,
-  on_date = NA, while_mp = TRUE)
+fetch_mps_government_roles(
+  from_date = NA,
+  to_date = NA,
+  on_date = NA,
+  while_mp = TRUE
+)
 }
 \arguments{
 \item{from_date}{A string or Date representing a date. If a string is used
