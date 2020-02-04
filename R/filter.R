@@ -61,7 +61,7 @@ filter_dates <- function(df,
     }
     # Set default values
     from_after_end <- FALSE
-    to_before_start = FALSE
+    to_before_start <- FALSE
 
     # Get matching rows
     if (! is.na(from_date)) {
