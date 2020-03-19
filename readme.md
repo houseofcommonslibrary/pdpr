@@ -16,11 +16,11 @@ The higher level interface currently focuses on providing key data about Members
 
 ## Installation
 
-Install from GitHub using devtools.
+Install from GitHub using remotes.
 
 ``` r
-install.packages("devtools")
-devtools::install_github("olihawkins/pdpr")
+install.packages("remotes")
+remotes::install_github("olihawkins/pdpr")
 ```
 
 ## Package conventions
