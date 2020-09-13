@@ -2,8 +2,12 @@ Package: pdpr
 Type: Package
 Title: A package for downloading data from the Parliamentary Data Platform
 Version: 0.1.8
-Author: Oliver Hawkins
-Maintainer: Oliver Hawkins <oli@olihawkins.com>
+Authors@R: 
+    person(
+        given = "Oliver",
+        family = "Hawkins",
+        role = c("aut", "cre"),
+        email = "oli@olihawkins.com")
 Description: This package provides functions for downloading data from the
     Parliamentary Data Platform. The core functions offer simple way to send
     SPARQL queries to the API endpoint and receive the results as a tibble 
@@ -23,4 +27,4 @@ Imports:
 	stringr,
 	tibble
 Suggests: testthat
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
